@@ -1,6 +1,7 @@
-# Criação do projeto com Create React App
+# Criação do projeto com Next.JS
 npx-create-next-app nome-da-aplicacao
 
+-- Usando CSS Module..
 
 ## Sobre o Projeto
 
