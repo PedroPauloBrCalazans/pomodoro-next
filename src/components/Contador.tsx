@@ -1,11 +1,15 @@
 import { useEffect, useState } from 'react';
 import styles from '../styles/components/Contador.module.css';
 
+let contadorTimeout: NodeJS.Timeout;
+
 export function Contador() {
     // Manipular horas em segundos, fica mais facil manipular essa operacao
     // 25 * 60, 60 segundos tem 1 minuto,,, 25 representa 25 minutos porem em segundos
-    const [time, setTime] = useState(25 * 60);
-    const [ativo, setAtivo] = useState(false);
+    const [time, setTime] = useState(0.1 * 60);
+    const [isAtivo, setIsAtivo] = useState(false);
+
+    const [finalizou, setFinalizou] = useState(false);
 
     //calculando os minutos atraves do valor acima 
 
@@ -17,16 +21,25 @@ export function Contador() {
      // vou converter em string...... padStart => vai verificar se a string tem 2 caracteres vai preencher o restante para esquerda com o paramentro que passamos (padStart(2, '0'))   split => vai dividir e retornar em 2 variaveis (25 '2' '5')
  
      function iniciarContador() {
-        setAtivo(true);
+        setIsAtivo(true);
+     }
+
+     function resertarContador() {
+        clearTimeout(contadorTimeout);
+        setIsAtivo(false);
+        setTime(0.1 * 60);
      }
 
      useEffect(() => {
-        if (ativo && time > 0) {
-            setTimeout(() => {
+        if (isAtivo && time > 0) {
+            contadorTimeout = setTimeout(() => {
                 setTime(time - 1);
             }, 1000)
+        } else if (isAtivo && time === 0) {
+            setFinalizou(true);
+            setIsAtivo(false);
         }
-     }, [ativo, time])
+     }, [isAtivo, time])
 
     return(
         <div>
@@ -42,13 +55,34 @@ export function Contador() {
                 </div>
             </div>
 
-            <button 
-                type='button'
-                className={styles.startContador}
-                onClick={iniciarContador}
-            >
-                Iniciar um ciclo
-            </button>
+            { finalizou ? (
+                <button
+                    disabled
+                    className={styles.startContador}
+                >
+                    Ciclo encerrado.
+                </button>
+                ) : (
+                    <>
+                     { isAtivo ? (
+                        <button 
+                            type='button'
+                            className={`${styles.startContador} ${styles.startContadorAtivo}`}
+                            onClick={resertarContador}
+                        >
+                            Abandonar ciclo
+                        </button>
+                        ) : (
+                                <button 
+                                    type='button'
+                                    className={styles.startContador}
+                                    onClick={iniciarContador}
+                                >
+                                    Iniciar um ciclo
+                                </button>
+                            )}
+                    </>
+                )}
         </div>
     );
 }
