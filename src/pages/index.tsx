@@ -1,11 +1,13 @@
+import Head from 'next/head';
+
 import { CompletarDesafio } from '../components/CompletarDesafio';
 import { Contador } from '../components/Contador';
 import { ExperienceBar } from '../components/ExperienceBar';
 import { Perfil } from '../components/Perfil';
-
-import Head from 'next/head';
+import { DesafioBox } from '../components/DesafioBox';
 
 import styles from '../styles/pages/Home.module.css';
+
 
 export default function Home() {
   return (
@@ -23,6 +25,7 @@ export default function Home() {
             <Contador />
         </div>
         <div>
+          <DesafioBox />
 
         </div>
       </section>

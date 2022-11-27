@@ -5,6 +5,7 @@ npx-create-next-app nome-da-aplicacao
 
 ## Sobre o Projeto
 
+
 ## Usando o Next.js
  - Ele substitui o create-react-app...
  - pode ser considerado um framework em cima do React. React = biblioteca de construção de interface...
@@ -24,6 +25,9 @@ npx-create-next-app nome-da-aplicacao
     _app.js -> funcionalidades que se repete em todo projeto.. navBar etc.... Aqui reaproveita mas e recalculado gera um processamento a mais.
     _document => carrega uma unica vez, numa visita de usuario em nossa aplicação...aqui e estatico
 
+## Usando Context API
+- Utilizaremos Context API => São formas de fazer comunicações entre vários componentes da nossa aplicação. 
+- Um componente pode se comunicar com outros componentes, passar informações..
 ### Para rodar a aplicação ->  `yarn dev`
 
 vai abrir em [http://localhost:3000]
