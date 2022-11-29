@@ -1,9 +1,15 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { DesafioContext } from '../contexts/DesafioContext';
 import styles from '../styles/components/Contador.module.css';
 
 let contadorTimeout: NodeJS.Timeout;
 
 export function Contador() {
+
+    //chamando contexto 
+    const { iniciarNovoDesafio } = useContext(DesafioContext);
+
+
     // Manipular horas em segundos, fica mais facil manipular essa operacao
     // 25 * 60, 60 segundos tem 1 minuto,,, 25 representa 25 minutos porem em segundos
     const [time, setTime] = useState(0.1 * 60);
@@ -38,6 +44,7 @@ export function Contador() {
         } else if (isAtivo && time === 0) {
             setFinalizou(true);
             setIsAtivo(false);
+            iniciarNovoDesafio();
         }
      }, [isAtivo, time])
 

@@ -1,19 +1,23 @@
+import { useContext } from 'react';
+import { DesafioContext } from '../contexts/DesafioContext';
+
 import styles from '../styles/components/DesafioBox.module.css';
 
 export function DesafioBox() {
 
-    const desafioAtivo = true;
+    const { ativoDesafio } = useContext(DesafioContext);
+
 
     return(
         <div className={styles.desafioBoxContainer}>
-            { desafioAtivo ? (
+            { ativoDesafio ? (
                 <div className={styles.desafioAtivo}>
-                    <header>Ganhe 400 xp</header>
+                    <header>Ganhe {ativoDesafio.amount} xp</header>
 
                     <main>
                         <img src="icon/academia.png" />
                         <strong>Novo desafio</strong>
-                        <p>Levante e vai passear com Marley </p>
+                        <p>{ativoDesafio.description}</p>
                     </main>
 
                     <footer>

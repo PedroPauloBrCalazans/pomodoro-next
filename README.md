@@ -28,6 +28,14 @@ npx-create-next-app nome-da-aplicacao
 ## Usando Context API
 - Utilizaremos Context API => São formas de fazer comunicações entre vários componentes da nossa aplicação. 
 - Um componente pode se comunicar com outros componentes, passar informações..
+- Quando eu tiver o contexto de desafios todos os componentes da nossa aplicação vão poder criar um novo desafio, pegar desafio ativo, saber quantos já foram completados..
+- const desafioContext = createContext({ valor inicial para o contexto... });
+- Contexto é uma forma de acesso ao uma informação de diversos lugares.....
+- Podemos ter informações dentro do context e funções.
 ### Para rodar a aplicação ->  `yarn dev`
 
 vai abrir em [http://localhost:3000]
+
+
+Math.random => retornar um numero randomico aleatorio entre 0 e 1... Se quiser que retorne aleatorio entre 0 e alguma coisa tenho que passar qual que é essa coisa *(multiplicando) o numero...
+para retornar apenas numeros inteiros Math.floor(Math.random() * algumaCoisa.length)
