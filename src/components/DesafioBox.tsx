@@ -5,12 +5,11 @@ import styles from '../styles/components/DesafioBox.module.css';
 
 export function DesafioBox() {
 
-    const { ativoDesafio } = useContext(DesafioContext);
-
+    const { ativoDesafio, resetarDesafio } = useContext(DesafioContext);
 
     return(
         <div className={styles.desafioBoxContainer}>
-            { ativoDesafio ? (
+            { ativoDesafio ? ( 
                 <div className={styles.desafioAtivo}>
                     <header>Ganhe {ativoDesafio.amount} xp</header>
 
@@ -24,6 +23,7 @@ export function DesafioBox() {
                         <button 
                             type='button'
                             className={styles.desafioFalhouButton}
+                            onClick={resetarDesafio}
                         >
                             Falhei
                         </button>

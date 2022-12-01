@@ -13,8 +13,10 @@ interface DesafioContextData {
     experienciaUsuario: number;
     desafioCompletos: number;
     ativoDesafio: DesafioJSON;
+    experienciaNovoNivel: number;
     levelUp: () => void;
     iniciarNovoDesafio: () => void;
+    resetarDesafio: () => void;
 }
 
 interface DesafioProviderProps {
@@ -31,6 +33,8 @@ export function DesafioProvider({ children }: DesafioProviderProps) {
 
     const [ativoDesafio, setAtivoDesafio] = useState(null);
 
+    const experienciaNovoNivel = Math.pow((level + 1) * 4, 2);
+
     function levelUp() {
         setLevel(level + 1);
     }
@@ -42,6 +46,10 @@ export function DesafioProvider({ children }: DesafioProviderProps) {
         setAtivoDesafio(desafio);
     }
 
+    function resetarDesafio() {
+        setAtivoDesafio(null);
+    }
+
 
     return (
         <DesafioContext.Provider 
@@ -50,8 +58,10 @@ export function DesafioProvider({ children }: DesafioProviderProps) {
             experienciaUsuario,
             desafioCompletos,
             ativoDesafio,
+            experienciaNovoNivel,
             levelUp,
-            iniciarNovoDesafio
+            iniciarNovoDesafio,
+            resetarDesafio
         }}>
             {children}
         </DesafioContext.Provider>

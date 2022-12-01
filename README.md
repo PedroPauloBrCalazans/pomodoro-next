@@ -38,4 +38,9 @@ vai abrir em [http://localhost:3000]
 
 
 Math.random => retornar um numero randomico aleatorio entre 0 e 1... Se quiser que retorne aleatorio entre 0 e alguma coisa tenho que passar qual que é essa coisa *(multiplicando) o numero...
-para retornar apenas numeros inteiros Math.floor(Math.random() * algumaCoisa.length)
+para retornar apenas numeros inteiros Math.floor(Math.random() * algumaCoisa.length)...
+
+
+Math.pow()  => calcular uma potencia
+
+Math.round() => arredonda o resultado...
