@@ -1,11 +1,23 @@
 import { useContext } from 'react';
+import { ContadorContext } from '../contexts/ContadorContext';
 import { DesafioContext } from '../contexts/DesafioContext';
 
 import styles from '../styles/components/DesafioBox.module.css';
 
 export function DesafioBox() {
 
-    const { ativoDesafio, resetarDesafio } = useContext(DesafioContext);
+    const { ativoDesafio, resetarDesafio, completarDesafio } = useContext(DesafioContext);
+    const { resertarContador } = useContext(ContadorContext);
+
+    function handleDesafioSucesso() {
+        completarDesafio();
+        resertarContador();
+    }
+
+    function handleDesafioFalo() {
+        resetarDesafio();
+        resertarContador();
+    }
 
     return(
         <div className={styles.desafioBoxContainer}>
@@ -30,6 +42,7 @@ export function DesafioBox() {
                         <button 
                             type='button'
                             className={styles.desafioSucessoButton}
+                            onClick={completarDesafio}
                         >
                             Completei
                         </button>

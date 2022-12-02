@@ -44,3 +44,12 @@ para retornar apenas numeros inteiros Math.floor(Math.random() * algumaCoisa.len
 Math.pow()  => calcular uma potencia
 
 Math.round() => arredonda o resultado...
+
+muito comum no React um contexto dependender do outro..
+<DesafioProvider>
+    <ContadorProvider>
+        <Component {...pageProps} />
+    </ContadorProvider>
+</DesafioProvider>
+
+desafio manda informações para os demais inclusive para o Contador por isso de está em baixo... Como não vou ter em todas as telas o  Contador, não precisa colocar no (_app.tsx).... E colocar na homePage(index.tsx) pois pertence somente para essa tela.

@@ -17,6 +17,7 @@ interface DesafioContextData {
     levelUp: () => void;
     iniciarNovoDesafio: () => void;
     resetarDesafio: () => void;
+    completarDesafio: () => void;
 }
 
 interface DesafioProviderProps {
@@ -50,6 +51,25 @@ export function DesafioProvider({ children }: DesafioProviderProps) {
         setAtivoDesafio(null);
     }
 
+    function completarDesafio() {
+        if(!ativoDesafio) {
+            return; //retorna void...
+        }
+
+        const { amount } = ativoDesafio;
+
+        let finalExperiencia = experienciaUsuario + amount;
+
+        if(finalExperiencia >= experienciaNovoNivel) {
+            finalExperiencia = finalExperiencia - experienciaNovoNivel;
+            levelUp();
+        }
+
+        setExperienciaUsuario(finalExperiencia);
+        setAtivoDesafio(null);
+        setDesafioCompleto(desafioCompletos + 1);
+    }
+
 
     return (
         <DesafioContext.Provider 
@@ -61,7 +81,8 @@ export function DesafioProvider({ children }: DesafioProviderProps) {
             experienciaNovoNivel,
             levelUp,
             iniciarNovoDesafio,
-            resetarDesafio
+            resetarDesafio,
+            completarDesafio
         }}>
             {children}
         </DesafioContext.Provider>

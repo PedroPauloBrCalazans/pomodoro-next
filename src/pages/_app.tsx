@@ -6,8 +6,7 @@ import { DesafioProvider } from '../contexts/DesafioContext';
 export default function App({ Component, pageProps }: AppProps) {
   return(
     <DesafioProvider>
-      <Component {...pageProps} />
+        <Component {...pageProps} />
     </DesafioProvider>
-    
   );
 }
