@@ -53,3 +53,18 @@ muito comum no React um contexto dependender do outro..
 </DesafioProvider>
 
 desafio manda informações para os demais inclusive para o Contador por isso de está em baixo... Como não vou ter em todas as telas o  Contador, não precisa colocar no (_app.tsx).... E colocar na homePage(index.tsx) pois pertence somente para essa tela.
+
+useEffect -> com array vazio vai renderizar somente 1 vez.....
+
+
+=> LocalStorage = Storage de chave valor, tudo em texto....Se mantem mesmo dando F5..
+
+=> SessionStorage = Mesma coisa que o local, porém é perdido na sessão..Fica somente na sessao de navegação, se atualizar perder os dados...
+
+=> IndexDB = BD mais completo...
+
+=> Cookies = Muito semelhante ao LocalStorage, salva informaçoes em texto..
+
+**Lembrando => quando estamos usando NEXT.JS => Ele não é somente JS no client-side(navegador), tem a camada intermediaria entre o back e front(Servidor NODE que fica responsavel por criar a interface... O servidor NODE nao vai ter acesso ao localStorage), Salvando com Cookies, todas as camadas da aplicação vão conseguir ter acesso a essas informações.... Quando utila Next.js utilizamos Cookies para fazer armazenamento do usuario....
+
+** yarn add js-cookie

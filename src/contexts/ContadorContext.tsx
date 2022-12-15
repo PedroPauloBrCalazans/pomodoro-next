@@ -25,7 +25,7 @@ export function ContadorProvider({ children } : ContadorProviderProps) {
 
     // Manipular horas em segundos, fica mais facil manipular essa operacao
     // 25 * 60, 60 segundos tem 1 minuto,,, 25 representa 25 minutos porem em segundos
-    const [time, setTime] = useState(0.1 * 60);
+    const [time, setTime] = useState(25 * 60);
     const [isAtivo, setIsAtivo] = useState(false);
     const [finalizou, setFinalizou] = useState(false);
 
@@ -41,6 +41,7 @@ export function ContadorProvider({ children } : ContadorProviderProps) {
      function resertarContador() {
         clearTimeout(contadorTimeout);
         setIsAtivo(false);
+        setFinalizou(false);
         setTime(0.1 * 60);
      }
 

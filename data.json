@@ -1,0 +1,27 @@
+[
+    {
+        "type": "body",
+        "description": "Estique um de seus braços com a palma da mão virada para frente e puxe os dedos para cima.",
+        "amount": 80
+    },
+    {
+        "type": "body",
+        "description": "Passear com Marley.",
+        "amount": 30
+    },
+    {
+        "type": "body",
+        "description": "Puxe seu pescoço com a ajuda da mão para a direita e para esquerda, permanecendo na posição.",
+        "amount": 70
+    },
+    {
+        "type": "body",
+        "description": "Cruze as pernas e desça com as maõs na parte de trás da cabeça.",
+        "amount": 100
+    },
+    {
+        "type": "eye",
+        "description": "Em algum ambiente aberto olhe o mais longe que puder em quartro direções por 3s.",
+        "amount": 80
+    }
+]

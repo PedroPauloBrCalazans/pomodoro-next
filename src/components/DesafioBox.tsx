@@ -14,7 +14,7 @@ export function DesafioBox() {
         resertarContador();
     }
 
-    function handleDesafioFalo() {
+    function handleDesafioFalei() {
         resetarDesafio();
         resertarContador();
     }
@@ -35,14 +35,14 @@ export function DesafioBox() {
                         <button 
                             type='button'
                             className={styles.desafioFalhouButton}
-                            onClick={resetarDesafio}
+                            onClick={handleDesafioFalei}
                         >
                             Falhei
                         </button>
                         <button 
                             type='button'
                             className={styles.desafioSucessoButton}
-                            onClick={completarDesafio}
+                            onClick={handleDesafioSucesso}
                         >
                             Completei
                         </button>
